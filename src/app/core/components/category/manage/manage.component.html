@@ -1,0 +1,71 @@
+<header class="mb-5">
+    <div class="header-page pt-5">
+        <h1 class="fs-1">Categor&iacute;as</h1>
+    </div>
+    <div class="sub-header">
+        <h6 class="fs-6 text-muted">Gastos ° Registrar</h6>
+    </div>
+</header>
+
+<div class="card border-0 rounded-3">
+    <div class="card-header border-0 pa-4 pt-5">
+        <h5 class="card-title">Registrar categor&iacute;a</h5>
+    </div>
+
+    <form [formGroup]="this.categoryService.form" class="needs-validation">
+        <div class="card-body pa-4 pt-4 pb-5">
+
+            <div class="mb-f row">
+                <label class="col-lg-3 col-form-label text-lg-end" for="">Nombre:</label>
+                <div class="col-lg-9 col-xl-4">
+                    <input
+                        [ngClass]="this.categoryService.nombre?.touched && this.categoryService.nombre?.errors ? 'is-invalid' : ''"
+                        class="form-control form-control-md" type="text" formControlName="nombre"
+                        [(ngModel)]="category.nombre">
+                    <div *ngIf="this.categoryService['nombre']errors" class="invalid-feedback">
+                        <div *ngIf="this.categoryService['nombre']errors['required'];">Este campo es obligatorio</div>
+                        <div *ngIf="this.categoryService['nombre']errors['minLength'];">Este campo no puede ser menor a
+                            3
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-f row">
+                <label class="col-lg-3 col-form-label text-lg-end" for="">Tipo:</label>
+                <div class="col-lg-9 col-xl-4">
+                    <select class="form-select"
+                        [ngClass]="this.categoryService.tipo?.touched && this.categoryService.tipo?.errors ? 'is-invalid' : ''"
+                        aria-label="Default select example" [(ngModel)]="category.tipo" formControlName="tipo">
+                        <option hidden>Seleccione una opci&oacute;n</option>
+                        <option [ngValue]="enum.value" *ngFor="let enum of types | keyvalue">{{ enum.value }}</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="this.categoryService['tipo']errors['required'];">Debe
+                        seleccionar una opción</div>
+                </div>
+            </div>
+
+            <div class="mb-f row">
+                <label for="descripcion" class="col-lg-3 col-form-label text-lg-end">Descripci&oacute;n:</label>
+                <div class="col-lg-3 col-xl-4">
+                    <textarea formControlName="descripcion" [(ngModel)]="category.descripcion"
+                        class="form-control form-control-md" id="descripcion"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer p-4 text-end">
+            <div class="row gx-5">
+                <div class="">
+                    <button class="btn btn-outline-danger btn-lg me-2 mb-3" routerLink="/category/list">Cancelar</button>
+                    <button href="#" class="btn btn-success btn-lg mb-3" (click)="save()">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+

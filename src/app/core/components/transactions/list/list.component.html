@@ -1,0 +1,66 @@
+<header class="mb-5">
+    <div class="header-page pt-5">
+        <h1 class="fs-1">Transacciones</h1>
+    </div>
+    <div class="sub-header">
+        <h6 class="fs-6 text-muted">Transacciones ° Listado</h6>
+    </div>
+</header>
+
+<div class="row">
+    <div class="col-lg-4">
+        Cuenta: <input (keyup)="filter($event)" type="text" placeholder="Buscar...">
+    </div>
+    <div class="mb-f row col-lg-8">
+        <label class="col-lg-3 col-form-label text-lg-end" for="">Tipo:</label>
+        <div class="col-lg-9 col-xl-4">
+            <select class="form-select" (change)="applyFilter($event)">
+                <option value="">Seleccione una opci&oacute;n...</option>
+                <option value="Gastos">Gastos</option>
+                <option value="Ingresos">Ingresos</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="card border-0 rounded-3">
+    <div class="card-body pa-4 pt-4 pb-5">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Transacciones</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr *ngFor="let transactions of transaction; index as i;">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ transactions.cantidad | currency: 'DOP'}}</td>
+                    <td>{{ transactions.fecha | date: 'MMMM d, y' | titlecase }}</td>
+                    <td>{{ transactions.cuenta }} - {{ transactions.tipo }}</td>
+                    <!--  <a href="#" [routerLink]="['/category/manage/', transactions.id]">Editar</a>
+                <button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content, transactions.id)">Eliminar</button>-->
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <!--<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
+    </div>
+    <div class="modal-body">
+        <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="deleteTransaction(transactionId)">Eliminar</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

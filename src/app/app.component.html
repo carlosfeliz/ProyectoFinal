@@ -1,0 +1,60 @@
+<!--SIDEBAR
+<div class="container-fluid">
+    <div class="row">
+        <nav>
+        <div class="col-2">
+            <div class="mb-5 mt-5"></div>
+                Toggler/collapsibe Button 
+                <button class="btn " id="collapsibleNavbar">
+                    <i class="bi bi-grid-3x3-gap-fill" style="font-size: 2rem;"></i>
+                </button>           
+                <div class="">
+                    <ul id="navBar" class="nav-pills" ngbNav #nav="ngbNav" [(activeId)]="active" orientation="vertical" data-visible="false">
+                        <li class="nav-item" [ngbNavItem]="link.fragment" *ngFor="let link of links">
+                            <a class="nav-link" ngbNavLink [routerLink]="link.link"><i
+                                    class="{{ link.icon }} me-3"></i>{{
+                                link.title }}</a>
+                            <ng-template ngbNavContent></ng-template>
+                        </li>
+                    </ul>
+                </div>
+                <div [ngbNavOutlet]="nav" class="ms-4"></div>
+                <pre>Active: {{ active }}</pre>
+            </nav>
+        </div>
+
+        <main class="col-10">
+            <div class="container-xxl">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+
+    </div>
+</div>-->
+
+
+<!--SIDEBAR-->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-2">
+            <div class="mb-5 mt-5"></div>
+
+            <ul class="nav-pills" ngbNav #nav="ngbNav" [(activeId)]="active" orientation="vertical">
+                <li class="nav-item" [ngbNavItem]="link.fragment" *ngFor="let link of links">
+                    <a class="nav-link" ngbNavLink [routerLink]="link.link"><i class="{{ link.icon }} me-3"></i>{{ link.title }}</a>
+                    <ng-template ngbNavContent></ng-template>
+                </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="ms-4"></div>
+            <!--<pre>Active: {{ active }}</pre>-->
+        </nav>
+
+        <main class="col-10">
+            <div class="container-xxl">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+
+    </div>
+</div>
+ 

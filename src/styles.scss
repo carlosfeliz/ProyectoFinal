@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Importing Bootstrap SCSS file. */
+
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+* {
+    box-sizing: border-box;
+    font-family: Poppins, Helvetica, sans-serif;
+}
+
+nav {
+    background-color: #f9fbfc;
+}
+
+main {
+    background-color: #eff1f5;
+}
+
+nav,
+main {
+    height: 100vh;
+}
+
+.header-page h1 {
+    font-weight: 600 !important;
+}
+
+.fs-6 {
+    font-size: 0.9rem !important;
+}
+
+.rounded-3 {
+    border-radius: .75rem !important;
+}
+
+.card-header,
+.card-footer {
+    background-color: transparent;
+}
+
+.btn-group-lg>.btn,
+.btn-lg {
+    font-size: 1rem;
+    border-radius: .55rem;
+    font-weight: 600;
+}
+
+.pa-4 {
+    padding-right: 1.9rem !important;
+    padding-left: 1.9rem !important;
+}
+
+.pt-5 {
+    padding-top: 2.7rem !important;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.mb-f {
+    margin-bottom: 2.2rem!important;
+}
+
+.form-control {
+    background-color: #ebeeef;
+    border-color: #f5f8fa;
+    color: #5e6278;
+    padding: .75rem 3rem .75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: 0.55rem;
+}
+
+label {
+    font-weight: 500;
+}
